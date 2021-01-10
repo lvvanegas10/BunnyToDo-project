@@ -29,6 +29,10 @@ module.exports.list = (event, context, callback) => {
     } else {
       return callback(null, {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
         body: JSON.stringify(data.Items),
       });
     }
@@ -59,6 +63,10 @@ module.exports.delete = (event, context, callback) => {
     } else {
       return callback(null, {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
       });
     }
   };
@@ -72,6 +80,10 @@ const _checkIfUserExist = (userId, callback, request) => {
       if (!result.Item) {
         let response = {
           statusCode: 404,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+          },
           body: JSON.stringify({
             message: `User not found`,
           }),
@@ -98,6 +110,10 @@ const _putUserTask = (action, callback, body, userId, taskId) => {
       .then((res) => {
         callback(null, {
           statusCode: 201,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+          },
           body: JSON.stringify({
             message: `Sucessfully ${action} task`,
             taskId: res.id,
@@ -108,6 +124,10 @@ const _putUserTask = (action, callback, body, userId, taskId) => {
       .catch((err) => {
         callback(null, {
           statusCode: 500,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+          },
           body: JSON.stringify({
             message: `Unable ${action} task`,
           }),

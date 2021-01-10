@@ -27,6 +27,10 @@ module.exports.list = (event, context, callback) => {
     } else {
       return callback(null, {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
         body: JSON.stringify(data.Items),
       });
     }
@@ -47,6 +51,10 @@ module.exports.get = (event, context, callback) => {
       if (!result.Item) {
         response = {
           statusCode: 404,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+          },
           body: JSON.stringify({
             message: `User not found`,
           }),
@@ -54,6 +62,10 @@ module.exports.get = (event, context, callback) => {
       } else {
         response = {
           statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+          },
           body: JSON.stringify(result.Item),
         };
       }
@@ -89,6 +101,10 @@ module.exports.delete = (event, context, callback) => {
     } else {
       return callback(null, {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
       });
     }
   };
@@ -125,6 +141,10 @@ const _putUser = (action, callback, body, userId) => {
     .then((res) => {
       callback(null, {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
         body: JSON.stringify({
           message: `Sucessfully ${action} ${name}`,
           userId: res.id,
@@ -135,6 +155,10 @@ const _putUser = (action, callback, body, userId) => {
       console.log(err);
       callback(null, {
         statusCode: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
         body: JSON.stringify({
           message: `Unable to ${action} ${name}`,
         }),

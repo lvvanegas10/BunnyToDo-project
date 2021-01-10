@@ -76,6 +76,8 @@ functions:
       - http:
           path: users
           method: post
+          cors:
+            origin: "*"
   listUsers:
     handler: api/handlers/User.list
     memorySize: 128
@@ -84,8 +86,10 @@ functions:
       - http:
           path: users
           method: get
+          cors:
+            origin: "*"
           caching:
-            enabled: true
+            enabled: false
   detailUser:
     handler: api/handlers/User.get
     memorySize: 128
@@ -94,6 +98,8 @@ functions:
       - http:
           path: users/{userId}
           method: get
+          cors:
+            origin: "*"
   updateUser:
     handler: api/handlers/User.update
     memorySize: 128
@@ -102,6 +108,8 @@ functions:
       - http:
           path: users/{userId}
           method: put
+          cors:
+            origin: "*"
   deleteUser:
     handler: api/handlers/User.delete
     memorySize: 128
@@ -110,6 +118,8 @@ functions:
       - http:
           path: users/{userId}
           method: delete
+          cors:
+            origin: "*"
   createUserTask:
     handler: api/handlers/UserTask.create
     memorySize: 128
@@ -118,6 +128,8 @@ functions:
       - http:
           path: users/{userId}/tasks
           method: post
+          cors:
+            origin: "*"
   listUserTasks:
     handler: api/handlers/UserTask.list
     memorySize: 128
@@ -126,8 +138,10 @@ functions:
       - http:
           path: users/{userId}/tasks
           method: get
+          cors:
+            origin: "*"
           caching:
-            enabled: true
+            enabled: false
             cacheKeyParameters:
               - name: request.path.userId
               - name: request.header.Accept-Language
@@ -139,6 +153,8 @@ functions:
       - http:
           path: users/{userId}/tasks/{taskId}
           method: put
+          cors:
+            origin: "*"
   deleteUserTask:
     handler: api/handlers/UserTask.delete
     memorySize: 128
@@ -147,3 +163,5 @@ functions:
       - http:
           path: users/{userId}/tasks/{taskId}
           method: delete
+          cors:
+            origin: "*"
