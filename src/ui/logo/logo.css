@@ -1,0 +1,37 @@
+#logo {
+  padding: 15px 10px 25px;
+}
+
+.hex:before {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid rgb(230, 125, 33);
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  position: absolute;
+  top: -10px;
+  border-radius: 2px;
+}
+
+.hex {
+  margin-top: 10px;
+  width: 34px;
+  height: 20px;
+  background-color: rgb(230, 125, 33);
+  position: relative;
+  color: white;
+  font-size: 21px;
+  border-radius: 2px;
+}
+
+.hex:after {
+  content: "";
+  width: 0;
+  position: absolute;
+  bottom: -10px;
+  border-top: 10px solid rgb(230, 125, 33);
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  border-radius: 2px;
+}
