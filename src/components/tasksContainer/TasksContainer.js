@@ -1,14 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { loadUserTasks } from "../../redux/actions/userTasksActions";
+import { connect } from "react-redux";
 import { CREATE_TASK } from "../../common/buttonActions";
-import CardsContainer from "../../ui/cardsContainer/CardsContainer";
 import { TASK } from "../../common/cardsTypes";
+import CardsContainer from "../../ui/cardsContainer/CardsContainer";
 
-function TasksContainer() {
+function TasksContainer({ selectedUser, tasks, loadUserTasks }) {
+  useEffect(() => {
+    if (selectedUser) {
+      loadUserTasks(selectedUser).catch((error) => {
+        alert("Loading user tasks failed" + error);
+      });
+    }
+  }, [selectedUser]);
+
   return (
     <div>
-      <CardsContainer type={TASK} buttonAction={CREATE_TASK} items={[]} />
+      <CardsContainer
+        type={TASK}
+        buttonAction={CREATE_TASK}
+        items={tasks || []}
+        textProperty="description"
+        emptyListMessage={
+          selectedUser
+            ? "The user do not have any task yet."
+            : "No user selected."
+        }
+      />
     </div>
   );
 }
+TasksContainer.propTypes = {
+  tasks: PropTypes.array,
+  selectedUser: PropTypes.string,
+  loadUserTasks: PropTypes.func.isRequired,
+};
 
-export default TasksContainer;
+function mapStateToProps(state) {
+  return {
+    selectedUser: state.selectedUser,
+    tasks: state.tasks,
+  };
+}
+
+const mapDispatchToProps = {
+  loadUserTasks,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(TasksContainer);
