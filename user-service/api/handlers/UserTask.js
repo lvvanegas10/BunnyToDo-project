@@ -67,6 +67,9 @@ module.exports.delete = (event, context, callback) => {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Credentials": true,
         },
+        body: JSON.stringify({
+          message: `Task deleted`,
+        }),
       });
     }
   };
@@ -113,11 +116,16 @@ const _putUserTask = (action, callback, body, userId, taskId) => {
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Credentials": true,
+            "Access-Control-Allow-Methods": "POST, PUT",
           },
           body: JSON.stringify({
             message: `Sucessfully ${action} task`,
-            taskId: res.id,
-            userId: res.userId,
+            task: {
+              id: res.id,
+              userId: res.userId,
+              description: res.description,
+              state: res.state,
+            },
           }),
         });
       })

@@ -105,6 +105,9 @@ module.exports.delete = (event, context, callback) => {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Credentials": true,
         },
+        body: JSON.stringify({
+          message: `User deleted`,
+        }),
       });
     }
   };
@@ -144,10 +147,14 @@ const _putUser = (action, callback, body, userId) => {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Credentials": true,
+          "Access-Control-Allow-Methods": "POST, PUT",
         },
         body: JSON.stringify({
           message: `Sucessfully ${action} ${name}`,
-          userId: res.id,
+          user: {
+            id: res.id,
+            name: res.name,
+          },
         }),
       });
     })

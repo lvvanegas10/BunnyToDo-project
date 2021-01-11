@@ -22,6 +22,7 @@ function TasksContainer({ selectedUser, tasks, loadUserTasks }) {
         buttonAction={CREATE_TASK}
         items={tasks || []}
         textProperty="description"
+        showAddButton={selectedUser ? true : false}
         emptyListMessage={
           selectedUser
             ? "The user do not have any task yet."

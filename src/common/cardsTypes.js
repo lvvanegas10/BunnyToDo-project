@@ -1,2 +1,2 @@
-export const USER = "users";
-export const TASK = "tasks";
+export const USER = "user";
+export const TASK = "task";

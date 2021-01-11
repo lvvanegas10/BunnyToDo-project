@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: rgb(36, 44, 66);
+  color: rgb(35, 42, 66);
 }
 
 .item-card-container:hover {
@@ -27,4 +27,16 @@
 
 .item-card-icon:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.item-card-selected {
+  border-left: 4px solid rgba(34, 42, 66);
+}
+
+.item-card-done {
+  border-left: 10px solid green;
+}
+
+.item-card-to-do {
+  border-left: 10px solid gray;
 }

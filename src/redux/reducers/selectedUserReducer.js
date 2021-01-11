@@ -12,6 +12,8 @@ export default function selectedUserReducer(
      */
     case types.CHANGE_SELECTED_USER:
       return action.selectedUser;
+    case types.CREATE_USER_SUCCESS:
+      return action.user.id;
     default:
       return state;
   }

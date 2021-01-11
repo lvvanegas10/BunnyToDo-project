@@ -7,7 +7,12 @@ import { CREATE_USER } from "../../common/buttonActions";
 import { USER } from "../../common/cardsTypes";
 import CardsContainer from "../../ui/cardsContainer/CardsContainer";
 
-function UsersContainer({ users, loadUsers, changeSelectedUser }) {
+function UsersContainer({
+  users,
+  selectedUser,
+  changeSelectedUser,
+  loadUsers,
+}) {
   /** Load the products */
   useEffect(() => {
     if (users.length === 0) {
@@ -23,9 +28,11 @@ function UsersContainer({ users, loadUsers, changeSelectedUser }) {
         type={USER}
         buttonAction={CREATE_USER}
         items={users}
-        onClickItem={changeSelectedUser}
         textProperty="name"
+        showAddButton={true}
         emptyListMessage="There are no users yet"
+        selectedItem={selectedUser}
+        onClickItem={changeSelectedUser}
       />
     </div>
   );
@@ -33,13 +40,15 @@ function UsersContainer({ users, loadUsers, changeSelectedUser }) {
 
 UsersContainer.propTypes = {
   users: PropTypes.array.isRequired,
-  loadUsers: PropTypes.func.isRequired,
+  selectedUser: PropTypes.string,
   changeSelectedUser: PropTypes.func.isRequired,
+  loadUsers: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
     users: state.users,
+    selectedUser: state.selectedUser,
   };
 }
 
