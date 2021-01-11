@@ -1,3 +1,3 @@
-# USER TASK (BunnyToDo)
+# BunnyToDo (User service)
 
-Restfull serverless microservice to create Users and add tasks to them.
+Restfull serverless microservice to create Users and attacht tasks to them.

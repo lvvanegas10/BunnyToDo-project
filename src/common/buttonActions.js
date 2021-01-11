@@ -1,3 +1,6 @@
+/**
+ * Modal confirm button actions
+ */
 export const CREATE_USER = "CREATE USER";
 export const CREATE_TASK = "CREATE TASK";
 export const UPDATE_USER = "UPDATE USER";

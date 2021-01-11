@@ -1,12 +1,9 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-/** Reducer for loading users*/
+/** Reducer for user (GET, POST, PUT, DELETE) */
 export default function usersReducer(state = initialState.users, action) {
   switch (action.type) {
-    /**
-     * Reduce loaded users
-     */
     case types.LOAD_USERS_SUCCESS:
       return action.users;
     case types.CREATE_USER_SUCCESS:

@@ -111,7 +111,6 @@ function CustomModal({
   }
 
   function getState(checked) {
-    console.log(checked);
     if (checked) {
       return DONE;
     }

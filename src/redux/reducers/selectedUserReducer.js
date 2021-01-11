@@ -7,9 +7,6 @@ export default function selectedUserReducer(
   action
 ) {
   switch (action.type) {
-    /**
-     * Update the selected user for userDetail
-     */
     case types.CHANGE_SELECTED_USER:
       return action.selectedUser;
     case types.CREATE_USER_SUCCESS:

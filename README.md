@@ -1,4 +1,20 @@
+# BunnyToDo
+
+TO-DO list. This project include CRUD operations for Users and Tasks.
+
+![BunnyToDo][https://github.com/lvvanegas10/bunny-project/tree/main/bunny-architecture.png]
+
+# Architecture
+
+![BunnyToDo][https://github.com/lvvanegas10/bunny-project/tree/main/bunny-frontend.png]
+
+# BunnyToDo (User service)
+
+To see how to deploy this service see the README in the service folder or [click here](https://github.com/lvvanegas10/bunny-project/tree/main/user-service),
+
 # BunnyToDo (Frontend)
+
+- Project in React + Redux + Thunk
 
 ## How to run the repository in a local environment
 

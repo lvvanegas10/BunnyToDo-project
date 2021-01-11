@@ -20,7 +20,7 @@ export function createUserTasksSuccess(task) {
   return { type: types.CREATE_USER_TASKS_SUCCESS, task };
 }
 
-/** Action creator: CREATE_USER_TASKS_SUCCESS*/
+/** Action creator: UPDATE_USER_TASKS_SUCCESS*/
 export function updateUserTasksSuccess(task) {
   return { type: types.UPDATE_USER_TASKS_SUCCESS, task };
 }
