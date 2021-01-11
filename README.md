@@ -2,11 +2,12 @@
 
 TO-DO list. This project include CRUD operations for Users and Tasks.
 
-![BunnyToDo][https://github.com/lvvanegas10/bunny-project/tree/main/bunny-architecture.png]
+![BunnyToDo](https://raw.githubusercontent.com/lvvanegas10/bunny-project/main/bunny-frontend.png?token=AGP56PWE6DBDTPMMGZWW2VDAATXFC)
+
 
 # Architecture
 
-![BunnyToDo][https://github.com/lvvanegas10/bunny-project/tree/main/bunny-frontend.png]
+![BunnyToDo](https://raw.githubusercontent.com/lvvanegas10/bunny-project/main/bunny-architecture.png?token=AGP56PXW6E3K3JWDX7DNJPTAATW5Q)
 
 # BunnyToDo (User service)
 
