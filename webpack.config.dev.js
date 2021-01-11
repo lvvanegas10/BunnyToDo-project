@@ -25,7 +25,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       "process.env.API_URL": JSON.stringify(
-        "https://38sqpc6si1.execute-api.us-east-1.amazonaws.com/dev"
+        ""
       ),
     }),
     new HtmlWebpackPlugin({
