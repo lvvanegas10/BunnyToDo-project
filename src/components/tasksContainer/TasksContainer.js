@@ -6,7 +6,13 @@ import { CREATE_TASK } from "../../common/buttonActions";
 import { TASK } from "../../common/cardsTypes";
 import CardsContainer from "../../ui/cardsContainer/CardsContainer";
 
+/**
+ * User task container
+ */
 function TasksContainer({ selectedUser, tasks, loadUserTasks }) {
+  /**
+   * Load user task
+   */
   useEffect(() => {
     if (selectedUser) {
       loadUserTasks(selectedUser).catch((error) => {

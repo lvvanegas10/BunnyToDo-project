@@ -9,11 +9,17 @@ import { DONE, TO_DO } from "../../common/tasksStates";
 const DELETE = "DELETE";
 const UPDATE = "UPDATE";
 
+/**
+ * Card item
+ */
 function ItemCard({ type, item, text, onClickItem, isSelected = false }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [actionModal, setActionModal] = React.useState(DELETE_USER);
   const itemCardRef = useRef(null);
 
+  /**
+   * Open modal for delete and edit card
+   */
   function openModal(event, action, id) {
     event.preventDefault();
     setIsOpen(true);
@@ -23,20 +29,32 @@ function ItemCard({ type, item, text, onClickItem, isSelected = false }) {
     }
   }
 
-  function getAction(modalType) {
-    return modalType + " " + type.toUpperCase();
-  }
-
+  /**
+   * Close modal
+   */
   function closeModal() {
     setIsOpen(false);
   }
 
+  /**
+   * Get action name
+   */
+  function getAction(modalType) {
+    return modalType + " " + type.toUpperCase();
+  }
+
+  /**
+   * On click item
+   */
   function handleOnClickItem(event, id) {
     if (event.target === itemCardRef.current && onClickItem && id) {
       onClickItem(id);
     }
   }
 
+  /**
+   * Get the color of the card border
+   */
   function getColorCard() {
     if (item && item.state === TO_DO) {
       return "item-card-to-do";

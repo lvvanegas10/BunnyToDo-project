@@ -41,6 +41,10 @@ const customStyles = {
   },
 };
 
+/**
+ * Modal to add and edit Users and Tasks
+ * Receibe an action to show the  content
+ */
 function CustomModal({
   item,
   selectedUser,
@@ -60,14 +64,40 @@ function CustomModal({
   const [inputValue, setInputValue] = useState("");
   const [checked, setCheckedValue] = useState(false);
 
+  /**
+   * On input (name for Users, description for Tasks)
+   */
   function onInputChange(value) {
     setInputValue(value);
   }
 
+  /**
+   * On switch (state for Tasks)
+   */
   function onCheckedChange(value) {
     setCheckedValue(value);
   }
 
+  /**
+   * Validate that input is not empty
+   */
+  function validateInput() {
+    return inputValue !== "";
+  }
+
+  /**
+   * Get tasks state depending on switch value
+   */
+  function getState(checked) {
+    if (checked) {
+      return DONE;
+    }
+    return TO_DO;
+  }
+
+  /**
+   * Get Modal content depending on action
+   */
   function getContent(action) {
     switch (action) {
       case CREATE_USER:
@@ -106,17 +136,9 @@ function CustomModal({
     }
   }
 
-  function validateInput() {
-    return inputValue !== "";
-  }
-
-  function getState(checked) {
-    if (checked) {
-      return DONE;
-    }
-    return TO_DO;
-  }
-
+  /**
+   * On submit actions depending on action
+   */
   function handleSubmit(event) {
     event.preventDefault();
     switch (action) {

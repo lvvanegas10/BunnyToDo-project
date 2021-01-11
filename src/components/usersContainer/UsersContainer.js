@@ -7,13 +7,16 @@ import { CREATE_USER } from "../../common/buttonActions";
 import { USER } from "../../common/cardsTypes";
 import CardsContainer from "../../ui/cardsContainer/CardsContainer";
 
+/**
+ * Users container
+ */
 function UsersContainer({
   users,
   selectedUser,
   changeSelectedUser,
   loadUsers,
 }) {
-  /** Load the products */
+  /** Load the users */
   useEffect(() => {
     if (users.length === 0) {
       loadUsers().catch((error) => {

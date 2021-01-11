@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./createUser.css";
 
+/**
+ * Create user input
+ */
 function CreateUser({ onInputChange, inputInitialValue }) {
   const [error, setError] = useState(null);
   const [input, setInput] = useState(inputInitialValue || "");
@@ -10,6 +13,9 @@ function CreateUser({ onInputChange, inputInitialValue }) {
     onInputChange(inputInitialValue || "");
   }, []);
 
+  /**
+   * Input validation
+   */
   function onChange(event) {
     let value = event.target.value;
     onInputChange(value);

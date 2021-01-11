@@ -4,6 +4,9 @@ import Switch from "react-switch";
 
 import "./createTask.css";
 
+/**
+ * Create task input
+ */
 function CreateTask({
   onInputChange,
   onCheckedChange,
@@ -19,6 +22,9 @@ function CreateTask({
     onCheckedChange(checkedInitialValue || false);
   }, []);
 
+  /**
+   * Input validation and change
+   */
   function onChange(event) {
     let value = event.target.value;
     onInputChange(value);
@@ -30,6 +36,9 @@ function CreateTask({
     }
   }
 
+  /**
+   * Switch management
+   */
   function onSwitchChange(val) {
     setChecked(val);
     onCheckedChange(val);

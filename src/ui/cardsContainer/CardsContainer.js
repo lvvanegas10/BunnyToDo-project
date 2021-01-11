@@ -3,6 +3,9 @@ import AddButton from "../addButton/AddButton";
 import ItemCard from "../itemCard/ItemCard";
 import PropTypes from "prop-types";
 
+/**
+ * List of cards
+ */
 function CardsContainer({
   type,
   buttonAction,
